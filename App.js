@@ -9,13 +9,15 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.square} />
-        <View style={styles.box} />
-        <View style={styles.box2}>
-          <View
-            style={{ width: "100%", height: 30, backgroundColor: "black" }}
-          />
-        </View>
+        <View style={[styles.box, { backgroundColor: "midnightblue" }]} />
+        <View style={[styles.box, { backgroundColor: "springgreen" }]} />
+        <View
+          style={[
+            styles.box,
+            { alignSelf: "flex-end", backgroundColor: "goldenrod" },
+          ]}
+        />
+        <View style={[styles.box, { backgroundColor: "hotpink" }]} />
       </View>
     );
   }
@@ -23,19 +25,16 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    width: "50%",
-    height: "50%"
-  },
-  square: {
-    flex: 1, // flex > 0 --> maximale Ausdehnung
-    backgroundColor: "midnightblue",
+    flex: 1, // flex >0 = max Ausdehnung
+    flexDirection: "column", // Ausrichtung der Hauptachse
+    justifyContent: "center", // Anordnung der Hauptachse
+    alignItems: "center", // Anordnung auf der Querachse
   },
   box: {
-    flex: 2,
-    backgroundColor: "maroon",
-  },
-  box2: {
-    flex: 3,
-    backgroundColor: "lightslategrey",
+    width: 100,
+    height: 100,
   },
 });
+
+// FlexBox - jede View ist direkt ein FleBox-Layout
+// flexDirection = wie sollen die Elemente angeordnet werden?
